@@ -2,6 +2,7 @@ class Calculator:
 
     #add A and B if its a #
     def addition(self,A,B):
+        # makes sure user enters a number because it's not commonsense
         if isinstance(A, (int,float)) and isinstance(B, (int, float)):
             return A + B
         else:
@@ -9,7 +10,6 @@ class Calculator:
 
     #subtract A and B if its a #
     def subtract(self,A, B):
-        # We don’t trust users, so let’s make sure they input numbers 
         if isinstance(A, (int, float)) and isinstance(B, (int, float)):
             return A - B
         else:
