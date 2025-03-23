@@ -1,5 +1,5 @@
 #Import TestClient to simulate API requests
-from fastapi.testclient import testclient
+from fastapi.testclient import TestClient
 
 #Import the FastAPI app istance from the controller module
 from main import app
