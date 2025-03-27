@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from fastapi.middleware.cors import CORSMiddleware
 
 from .models import models, schemas
-from .controllers import orders
+from .controllers import orders, recipes, resources, sandwiches, order_details
 from .dependencies.database import engine, get_db
 
 models.Base.metadata.create_all(bind=engine)
@@ -168,8 +168,7 @@ def read_one_order_detail(order_detail_id: int, db: Session = Depends(get_db)):
     order = order_details.read_one(db, order_detail_id=order_detail_id)
     if order is None:
         raise HTTPException(status_code=404, detail="User not found")
-    return order_detail
-
+    return order
 
 @app.put("/order_details/{order_detail_id}", response_model=schemas.OrderDetail, tags=["Order_details"])
 def update_one_order_detail(order_detail_id: int, order_detail: schemas.OrderDetailUpdate, db: Session = Depends(get_db)):
